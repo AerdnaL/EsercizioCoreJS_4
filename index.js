@@ -13,24 +13,17 @@ class Biblioteca {
       let concatenaAutoriTitoli =
         `${this.elencoLibri[i].autore} ${this.elencoLibri[i].titolo}`.toLowerCase();
       if (concatenaAutoriTitoli.includes(stringa.toLowerCase())) {
-        trovato = `${this.elencoLibri[i].autore} ${this.elencoLibri[i].titolo}`; // e se appendessi direttamente in p? no //
+        trovato = `${this.elencoLibri[i].autore} ${this.elencoLibri[i].titolo}`;
         contaOccorrenze++;
       }
-      /*if (contaOccorrenze == 1) {
-        let nuovoNodo = document.createElement('p');
-        nuovoNodo.textContent = `${this.elencoLibri[i].autore} ${this.elencoLibri[i].titolo}`;
-        spazioRisultati.appendChild(nuovoNodo);
-      } else {
-        return contaOccorrenze;
-      }*/
     }
 
-    /*if (contaOccorrenze == 1) {
-      spazioRisultati.appendChild(trovato);
+    if (contaOccorrenze == 1) {
+      spazioRisultati.textContent = trovato;
     } else {
-      spazioRisultati.appendChild(contaOccorrenze);
-    }*/
-
+      spazioRisultati.textContent = contaOccorrenze;
+    }
+    console.log(trovato);
     console.log(contaOccorrenze);
   }
 }
@@ -52,13 +45,3 @@ inputTesto.addEventListener('input', () => {
   spazioRisultati.replaceChildren();
   Biblioteca1.ricercaLibri(inputTesto.value);
 });
-
-/*const inputTesto = document.getElementById('inputTesto');
-
-inputTesto.addEventListener('input', () => {
-  console.log(inputTesto.value);
-}); 
-ok mettiamo che la funzione sopra voglia modificarla in questo modo:
-Voglio inserire in html un campo input dove ricercare la stringa di testo che la funzione deve trovare nella classe, ogni volta 
-
-*/
