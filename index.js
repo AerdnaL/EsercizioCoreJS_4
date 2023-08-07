@@ -6,18 +6,32 @@ class Biblioteca {
   }
 
   ricercaLibri(stringa) {
-    let trovato = false;
+    let trovato = '';
+    let contaOccorrenze = 0;
 
     for (let i = 0; i < this.elencoLibri.length; i++) {
       let concatenaAutoriTitoli =
         `${this.elencoLibri[i].autore} ${this.elencoLibri[i].titolo}`.toLowerCase();
       if (concatenaAutoriTitoli.includes(stringa.toLowerCase())) {
-        trovato = true;
+        trovato = `${this.elencoLibri[i].autore} ${this.elencoLibri[i].titolo}`; // e se appendessi direttamente in p? no //
+        contaOccorrenze++;
+      }
+      /*if (contaOccorrenze == 1) {
         let nuovoNodo = document.createElement('p');
         nuovoNodo.textContent = `${this.elencoLibri[i].autore} ${this.elencoLibri[i].titolo}`;
         spazioRisultati.appendChild(nuovoNodo);
-      }
+      } else {
+        return contaOccorrenze;
+      }*/
     }
+
+    /*if (contaOccorrenze == 1) {
+      spazioRisultati.appendChild(trovato);
+    } else {
+      spazioRisultati.appendChild(contaOccorrenze);
+    }*/
+
+    console.log(contaOccorrenze);
   }
 }
 
